@@ -37,6 +37,7 @@ pip install -r requirements.txt
 這將針對 Steam 評論文字進行預訓練，優化 BERT 的語言理解能力
 ```bash
 python src/train_mlm.py
+```
 
 第二階段：主模型訓練（Ordinal Regression + Adapter）
 結合文本特徵與營運數據，進行生存年數的序數回歸預測。
