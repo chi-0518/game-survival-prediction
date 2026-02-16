@@ -20,10 +20,10 @@ class MLMDataset(Dataset):
 def load_data():
     client = MongoClient("localhost:27017")
     db = client.bigdata
-    game_data = pd.DataFrame(list(db.after_2023_game_id.find({}, {"遊戲ID": 1, "year": 1, "_id": 0})))
+    game_data = pd.DataFrame(list(db.year_sample.find({}, {"遊戲ID": 1, "year": 1, "_id": 0})))
     sentiment_data = pd.DataFrame(
-        list(db.disable_game_allcomment_notrepeat_04302025.find({}, {"遊戲ID": 1, "評論內容": 1, "推薦狀態": 1, "_id": 0})))
-    adapter_data = pd.DataFrame(list(db.disable_game_year_news_5000_0525.find({}, {
+        list(db.comment_sample.find({}, {"遊戲ID": 1, "評論內容": 1, "推薦狀態": 1, "_id": 0})))
+    adapter_data = pd.DataFrame(list(db.news_sample.find({}, {
         "遊戲ID": 1, "owners_estimate": 1, "news_count": 1, 
         "average_forever": 1, "median_forever": 1, "_id": 0
     })))
