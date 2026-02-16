@@ -23,5 +23,29 @@
 ## 快速開始
 
 ### 1. 安裝環境
+請確保您的 Python 版本為 3.8+，並執行以下指令安裝依賴套件：
 ```bash
 pip install -r requirements.txt
+
+### 2. 資料準備
+本專案預設連接本地 MongoDB 。
+
+### 3. 執行訓練流程
+本專案分為兩個階段進行：
+
+第一階段：MLM (Masked Language Modeling) 領域適應訓練
+這將針對 Steam 評論文字進行預訓練，優化 BERT 的語言理解能力
+```bash
+python src/train_mlm.py
+
+第二階段：主模型訓練（Ordinal Regression + Adapter）
+結合文本特徵與營運數據，進行生存年數的序數回歸預測。
+```bash
+python src/train_main.py
+
+### 實驗結果評估
+模型評估將產出以下指標，用於論文數據分析：
+
+Accuracy: 年數預測精準度。
+
+MAE (Mean Absolute Error): 平均絕對誤差（預測年數與實際年數的落差）。
