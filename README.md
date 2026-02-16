@@ -1,6 +1,8 @@
 # Steam 遊戲生存年數預測系統 (Steam Survival Prediction)
 
 這是一項基於深度學習的學術研究專案，旨在透過分析 Steam 平台的**遊戲評論（文本）**與**營運數據（數值）**，預測遊戲在平台上的生存年數。
+註:需自行建立 MongoDB 或是修改 load_data 改讀 CSV
+
 
 ## 研究摘要
 本專案結合了自然語言處理 (NLP) 與多模態融合技術：
@@ -29,7 +31,13 @@ pip install -r requirements.txt
 ```
 
 ### 2. 資料準備
-本專案預設連接本地 MongoDB 。
+本專案預設連接本地 MongoDB。若您想了解所需的資料欄位格式，請參考 `data/` 資料夾下的範例 CSV：
+- **欄位說明**：
+  - `year`: 遊戲生存年數（標籤）。
+  - `owners_estimate`: 銷售預估量（需取 Log 轉換）。
+  - `評論內容`: 用於 BERT 輸入的文本。
+  - `推薦狀態`: 用於 Prefix 增加文本特徵 (positive/negative)。
+
 
 ### 3. 執行訓練流程
 本專案分為兩個階段進行：
