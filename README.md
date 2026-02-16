@@ -2,25 +2,25 @@
 
 這是一項基於深度學習的學術研究專案，旨在透過分析 Steam 平台的**遊戲評論（文本）**與**營運數據（數值）**，預測遊戲在平台上的生存年數。
 
-## 📖 研究摘要
+## 研究摘要
 本專案結合了自然語言處理 (NLP) 與多模態融合技術：
 1. **領域適應 (Domain Adaptation)**：針對 Steam 評論進行 MLM (Masked Language Modeling) 預訓練。
 2. **序數回歸 (Ordinal Regression)**：解決生存年數具有「順序性」的類別預測問題。
 3. **Adapter / Prefix融合**：將遊戲的銷售預估、新聞量等數值特徵以及是否推薦(二分類特徵)整合進 BERT 模型中。
 
-## 🛠️ 技術棧
+## 技術棧
 - **Language**: Python 3.8+
 - **Framework**: PyTorch, HuggingFace Transformers
 - **Database**: MongoDB (原始資料存儲)
 - **Model**: BERT-base-uncased
 
-## 📁 資料夾說明
+## 資料夾說明
 - `src/model.py`: 定義 `OrdinalBERTClassifier` 與序數回歸層。
 - `src/dataset.py`: 處理資料清洗、Log 轉換及 DataLoader 封裝。
 - `src/train_mlm.py`: 用於執行第一階段的 MLM 預訓練。
 - `src/train_main.py`: 主訓練程式，包含 Adapter 融合與模型評估。
 
-## 🚀 快速開始
+## 快速開始
 
 ### 1. 安裝環境
 ```bash
