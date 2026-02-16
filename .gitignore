@@ -1,0 +1,24 @@
+# Python 執行產生的暫存檔
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 虛擬環境資料夾
+venv/
+.env
+
+# 訓練好的模型權重 
+ordinal_bert_model/
+models/
+*.bin
+*.pth
+*.gz
+
+# 資料庫導出的原始資料
+data/*.csv
+data/*.json
+data/*.xlsx
+
+# 作業系統產生的雜物
+.DS_Store
+Thumbs.db
